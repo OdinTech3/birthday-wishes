@@ -1,0 +1,11 @@
+.env
+
+# Python
+.venv/
+__pycache__
+
+# Django
+db.sqlite3
+
+# IDE/Editor Configs
+.idea/
