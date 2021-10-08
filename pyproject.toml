@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "bday-wishes"
+name = "core"
 version = "0.1.0"
 description = ""
 authors = ["\"Nick Muoh\" <\"nickspirit3+github@gmail.com\">"]
@@ -8,6 +8,7 @@ authors = ["\"Nick Muoh\" <\"nickspirit3+github@gmail.com\">"]
 python = "^3.9"
 Django = "^3.2.7"
 python-decouple = "^3.4"
+Pillow = "^8.3.2"
 
 [tool.poetry.scripts]
 manage = "manage:main"

@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class FrontendConfig(AppConfig):
-    name = 'frontend'
+class CoreConfig(AppConfig):
+    name = 'core'
