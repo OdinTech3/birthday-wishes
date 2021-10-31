@@ -9,6 +9,8 @@ python = "^3.9"
 Django = "^3.2.7"
 python-decouple = "^3.4"
 Pillow = "^8.3.2"
+django-extensions = "^3.1.3"
+django-allauth = "^0.45.0"
 
 [tool.poetry.scripts]
 manage = "manage:main"
@@ -16,6 +18,7 @@ manage = "manage:main"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-django = "^4.4.0"
+Werkzeug = "^2.0.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

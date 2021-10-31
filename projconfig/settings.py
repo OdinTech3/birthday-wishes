@@ -14,6 +14,7 @@ ALLOWED_HOSTS: list[str] = []
 
 
 # Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -22,6 +23,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.sites',
+    # 3rd party
+    "allauth",
+    "allauth.account",
+    "django_extensions",
+    # local
     "core",
 ]
 
@@ -106,5 +113,33 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 # Redirect Links
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"
+
+AUTH_USER_MODEL = "core.Celebrant"
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+# DJANGO-ALLAUTH Configs
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_USERNAME_REQUIRED = False
+
+ACCOUNT_ADAPTER = 'core.adapters.AccountAdapter'
+
+ACCOUNT_FORMS = {'signup': 'core.forms.CelebrantSignUpForm'}
+
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+
+ACCOUNT_SESSION_REMEMBER = True
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+ACCOUNT_UNIQUE_EMAIL = True
