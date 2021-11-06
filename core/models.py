@@ -74,7 +74,7 @@ class Celebrant(AbstractUser, BaseModel):
 
 
 class Friend(BaseModel):
-    user = models.OneToOneField(Celebrant, to_field="_id", on_delete=models.CASCADE)
+    user = models.OneToOneField(Celebrant, to_field="_id", on_delete=models.CASCADE, **canbe_blank)
     first_name = models.CharField(max_length=150, **cantbe_blank)
     last_name = models.CharField(max_length=150, **cantbe_blank)
 
@@ -90,4 +90,4 @@ class BirthdayWish(BaseModel):
     well_wisher = models.ForeignKey(
         Friend, to_field="_id", related_name="birthay_wish", on_delete=models.CASCADE
     )
-    text = models.TextField(**cantbe_blank)
+    message = models.TextField(**cantbe_blank)

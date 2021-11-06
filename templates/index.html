@@ -1,12 +1,16 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
-{% block content %}
+{% block content %} 
+
 {% if user.is_authenticated %}
-  <h1>Hi {{ user.username }}! You are Logged in</h1>
+  <h1>Hi {{ user.username }}! Wish someone a birthday</h1>
+  {% include "components/birthday_wish_form.html" with form=form %}
   <p><a href="{% url 'account_logout' %}">Log Out</a></p>
 {% else %}
-  <h1>You are not Logged in</h1>
+  <h1>You are not Logged in, Wish someone a birthday</h1>
+  {% include "components/birthday_wish_form.html" with form=form %}
   <a href="{% url 'account_login' %}">Log In</a> |
   <a href="{% url 'account_signup' %}">Sign Up</a>
-{% endif %}
+{% endif %} 
+
 {% endblock %}
